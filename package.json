@@ -1,0 +1,22 @@
+{
+  "name": "winnertakesitall",
+  "version": "0.1.0",
+  "description": "",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc -b ./tsconfig.json"
+  },
+  "author": "kuegi",
+  "license": "MIT",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.12",
+    "typescript": "4.6.2",
+    "web3": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.41",
+    "@types/ws": "8.5.0"
+  }
+}
