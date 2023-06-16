@@ -129,7 +129,7 @@ async function interact(privKey: string): Promise<void> {
   const waitTime: bigint = await contract.methods.WAIT_TIME_BLOCKS().call()
   console.log('got data: ' + currentBlock + ' ' + lastSender + ' ' + lastInputBlock + ' ' + waitTime)
 
-  if (currentBlock - lastInputBlock > waitTime && lastSender == usedAcc) {
+  if (currentBlock - lastInputBlock > waitTime && lastSender.toLowerCase() == usedAcc.toLowerCase()) {
     //call claim
     console.log('claiming')
     const receipt = await contract.methods.claim().send({
@@ -137,7 +137,7 @@ async function interact(privKey: string): Promise<void> {
       gas: w3.utils.toHex((await contract.methods.claim().estimateGas()) * 4n),
     })
     console.log('done: ' + receipt.transactionHash)
-  } else if (lastSender != usedAcc) {
+  } else if (lastSender.toLowerCase() != usedAcc.toLowerCase()) {
     //gamble
     console.log('gambling')
     const receipt = await contract.methods.gamble().send({
