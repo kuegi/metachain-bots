@@ -1,2 +1,4 @@
 ﻿node_modules/
 build/
+.vscode/launch.json
+dist

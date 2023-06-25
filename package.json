@@ -6,17 +6,23 @@
     "build"
   ],
   "scripts": {
-    "build": "tsc -b ./tsconfig.json"
+    "build": "tsc -b ./tsconfig.json",
+    "build:lambda": "node build-bot.js"
   },
   "author": "kuegi",
   "license": "MIT",
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.12",
+    "@defichain/jellyfish-network": "^3.5.2",
+    "@defichain/whale-api-client": "^3.5.2",
     "typescript": "4.6.2",
+    "aws-sdk": "^2.1084.0",
+    "deterministic-zip": "github:troyready/deterministic-zip#patch-1",
     "web3": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.41",
-    "@types/ws": "8.5.0"
+    "@types/ws": "8.5.0",
+    "@vercel/ncc": "latest"
   }
 }
