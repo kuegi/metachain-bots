@@ -105,10 +105,7 @@ const contractABI = [
   },
 ] as const
 
-async function interact(privKey: string): Promise<void> {
-  const dmcRPC = 'https://testnet-dmc.mydefichain.com:20551'
-  //const dmcRPC = 'http://127.0.0.1:20551'
-
+export async function doWinnerTakesItAll(privKey: string, dmcRPC: string): Promise<void> {
   const provider = new HDWalletProvider({
     //mnemonic: mnemonic,
     privateKeys: [privKey],
@@ -149,6 +146,3 @@ async function interact(privKey: string): Promise<void> {
     console.log('nothing to do, just wait ' + (waitTime - (currentBlock - lastInputBlock)) + ' blocks')
   }
 }
-
-const myArgs = process.argv.slice(2)
-interact(myArgs[0])
